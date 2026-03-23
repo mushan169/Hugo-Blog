@@ -1,0 +1,35 @@
+
+<!-- <div>这里是pagination模板内容</div> -->
+{{ $pag := $.Paginator }}
+<nav class="flex justify-start my-6">
+    <ul class="flex items-center bg-white border border-gray-200 rounded text-sm text-gray-600 font-sans">
+
+        <li class="border-r border-gray-200">
+            {{ if $pag.HasPrev }}
+            <a href="{{ $pag.Prev.URL }}"
+                class="px-3 py-1.5 hover:bg-gray-50 block transition-colors text-gray-400">«</a>
+            {{ else }}
+            <span class="px-3 py-1.5 block text-gray-200 cursor-not-allowed">«</span>
+            {{ end }}
+        </li>
+
+        {{ range $pag.Pagers }}
+        {{ $isCurrent := eq . $pag }}
+        <li class="border-r border-gray-200 last:border-r-0">
+            <a href="{{ .URL }}"
+                class="px-4 py-1.5 block transition-colors {{ if $isCurrent }}bg-gray-50 font-bold text-gray-800{{ else }}hover:bg-gray-50{{ end }}">
+                {{ .PageNumber }}
+            </a>
+        </li>
+        {{ end }}
+
+        <li class="border-l border-gray-200">
+            {{ if $pag.HasNext }}
+            <a href="{{ $pag.Next.URL }}"
+                class="px-3 py-1.5 hover:bg-gray-50 block transition-colors text-gray-400">»</a>
+            {{ else }}
+            <span class="px-3 py-1.5 block text-gray-200 cursor-not-allowed">»</span>
+            {{ end }}
+        </li>
+    </ul>
+</nav>

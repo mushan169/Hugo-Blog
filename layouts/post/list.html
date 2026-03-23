@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="max-w-4xl mx-auto  py-8 ">
+
+    {{ $paginator := .Paginator }} 
+
+
+    <div class="mb-8">
+        {{ partial "pagination.html" . }}
+    </div>
+    
+    <div class="space-y-6">
+        {{ range $paginator.Pages }}
+            <article class="p-4 border-b">
+                <h2 class="text-xl font-bold">{{ .Title }}</h2>
+                <p>{{ .Summary }}</p>
+            </article>
+        {{ end }}
+    </div>
+
+    <div class="mt-8">
+        {{ partial "pagination.html" . }}
+    </div>
+
+</div>
+{{ end }}

@@ -1,0 +1,41 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'zh-cn'
+title = '木山木山的小站'
+theme = 'mushan'
+
+paginate = 1
+
+[markup.postCSS]
+use = ["postcss"]
+includePaths = ["assets/css"]
+
+[menu]
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Post"
+url = "/post/"
+weight = 2
+
+
+[[menu.main]]
+name = "Draw"
+url = "/draw/"
+weight = 3
+
+[[menu.main]]
+name = "Read"
+url = "/read/"
+weight = 4
+
+[[menu.main]]
+name = "Profile"
+url = "/profile/"
+weight = 5
+
+
+[params]
+author = "木山木山"

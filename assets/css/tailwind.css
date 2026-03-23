@@ -1,0 +1,11 @@
+/* assets/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 可以在这里添加自定义的全局样式 */
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
