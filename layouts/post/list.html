@@ -1,26 +1,75 @@
 {{ define "main" }}
+{{ $allPosts := where .Site.RegularPages "Section" "post" }}
+{{ $allPosts = sort $allPosts "Date" "desc" }}
+{{ $paginator := .Paginate $allPosts }}
+{{ $start := add (mul (sub $paginator.PageNumber 1) $paginator.PagerSize) 1 }}
+{{ $end := add $start (sub (len $paginator.Pages) 1) }}
 
-<div class="max-w-4xl mx-auto  py-8 ">
+<section class="post-list-shell">
+    <header class="post-list-header">
+        <p class="post-list-kicker">Posts</p>
+        <h1 class="post-list-title">{{ .Title }}</h1>
+        <p class="post-list-summary">
+            Showing {{ $start }}-{{ $end }} of {{ len $allPosts }} posts.
+        </p>
+    </header>
 
-    {{ $paginator := .Paginator }} 
-
-
-    <div class="mb-8">
+    <div class="post-list-pagination post-list-pagination--top">
         {{ partial "pagination.html" . }}
     </div>
-    
-    <div class="space-y-6">
+
+    <div class="post-list">
         {{ range $paginator.Pages }}
-            <article class="p-4 border-b">
-                <h2 class="text-xl font-bold">{{ .Title }}</h2>
-                <p>{{ .Summary }}</p>
-            </article>
+        {{ $cover := "" }}
+        {{ with .Params.cover }}{{ $cover = . }}{{ end }}
+        {{ with .Params.thumbnail }}{{ $cover = . }}{{ end }}
+        {{ with .Params.image }}{{ $cover = . }}{{ end }}
+
+        {{ $label := .Section }}
+        {{ with .Params.category }}{{ $label = . }}{{ end }}
+        {{ with .Params.categories }}{{ if gt (len .) 0 }}{{ $label = index . 0 }}{{ end }}{{ end }}
+        {{ with .Params.tag }}{{ $label = . }}{{ end }}
+        {{ $labelClass := printf "post-list-item__tag--%s" ($label | lower | urlize) }}
+        {{ $description := .Description }}
+        {{ if not $description }}
+        {{ $description = .Summary | plainify | truncate 140 }}
+        {{ end }}
+        {{ $showImageInList := true }}
+        {{ if isset .Params "show_image_in_list" }}{{ $showImageInList = .Params.show_image_in_list }}{{ end }}
+        {{ $hasImageBlock := $showImageInList }}
+
+        <article class="post-list-item {{ if not $hasImageBlock }}post-list-item--no-image{{ end }}">
+            {{ if $hasImageBlock }}
+            <a class="post-list-item__media" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+                {{ if $cover }}
+                <img src="{{ $cover | relURL }}" alt="{{ .Title }}" class="post-list-item__image">
+                {{ else }}
+                <div class="post-list-item__placeholder" aria-hidden="true">
+                    <span>{{ substr .Title 0 1 | upper }}</span>
+                </div>
+                {{ end }}
+            </a>
+            {{ end }}
+
+            <div class="post-list-item__content">
+                <div class="post-list-item__meta">
+                    <time class="post-list-item__date" datetime="{{ .Date.Format "2006-01-02" }}">
+                        {{ .Date.Format "2006.01.02" }}
+                    </time>
+                    <span class="post-list-item__tag {{ $labelClass }}">{{ $label }}</span>
+                    <h2 class="post-list-item__title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                </div>
+
+                <p class="post-list-item__summary">{{ $description }}</p>
+            </div>
+        </article>
         {{ end }}
     </div>
 
-    <div class="mt-8">
+    <div class="post-list-pagination post-list-pagination--bottom">
         {{ partial "pagination.html" . }}
     </div>
-
-</div>
+</section>
 {{ end }}

@@ -6,21 +6,21 @@
     <description>Recent content in Posts on 木山木山的小站</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Mar 2026 19:07:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 20:30:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test2</title>
-      <link>http://localhost:1313/post/test2/</link>
-      <pubDate>Mon, 09 Mar 2026 19:07:52 +0800</pubDate>
-      <guid>http://localhost:1313/post/test2/</guid>
-      <description>&lt;p&gt;这是我的第二篇文章&lt;/p&gt;</description>
+      <title>博客文章样例</title>
+      <link>http://localhost:1313/post/common/sample-post/</link>
+      <pubDate>Wed, 29 Apr 2026 20:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/post/common/sample-post/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;这是一篇样例文章，用于展示 Hugo 博客文章的&lt;strong&gt;基本格式&lt;/strong&gt;和&lt;strong&gt;常用语法&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;&#xA;&lt;h3 id=&#34;文字样式&#34;&gt;文字样式&lt;/h3&gt;&#xA;&lt;p&gt;这里是普通正文。&lt;strong&gt;这是粗体&lt;/strong&gt;，&lt;em&gt;这是斜体&lt;/em&gt;，&lt;em&gt;&lt;strong&gt;这是粗斜体&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;这是一行内联代码&lt;/code&gt;。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;这是一段引用文字，常用于强调或引用他人的话。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;列表&#34;&gt;列表&lt;/h3&gt;&#xA;&lt;p&gt;无序列表：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;第一项&lt;/li&gt;&#xA;&lt;li&gt;第二项&#xA;&lt;ul&gt;&#xA;&lt;li&gt;嵌套子项 A&lt;/li&gt;&#xA;&lt;li&gt;嵌套子项 B&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;第三项&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;有序列表：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;第一步&lt;/li&gt;&#xA;&lt;li&gt;第二步&lt;/li&gt;&#xA;&lt;li&gt;第三步&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;代码块&#34;&gt;代码块&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;():&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, Hugo Blog!&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;表格&#34;&gt;表格&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;属性&lt;/th&gt;&#xA;          &lt;th&gt;值&lt;/th&gt;&#xA;          &lt;th&gt;说明&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;标题&lt;/td&gt;&#xA;          &lt;td&gt;博客文章样例&lt;/td&gt;&#xA;          &lt;td&gt;文章名称&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;日期&lt;/td&gt;&#xA;          &lt;td&gt;2026-04-29&lt;/td&gt;&#xA;          &lt;td&gt;发布日期&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;分类&lt;/td&gt;&#xA;          &lt;td&gt;tech&lt;/td&gt;&#xA;          &lt;td&gt;技术类&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;链接与图片&#34;&gt;链接与图片&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;访问 Hugo 官网&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;插入图片示例：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/home.png&#34; alt=&#34;示例图片&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;&#xA;&lt;p&gt;以上就是一篇标准博客文章包含的常用元素，可以根据需要自由组合使用。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Test</title>
-      <link>http://localhost:1313/post/test/</link>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/test/</guid>
-      <description>&lt;p&gt;这是我的第一篇文章。&lt;/p&gt;</description>
+      <title>四月日记</title>
+      <link>http://localhost:1313/post/diary/april/</link>
+      <pubDate>Wed, 08 Apr 2026 18:34:42 +0800</pubDate>
+      <guid>http://localhost:1313/post/diary/april/</guid>
+      <description>&lt;h2 id=&#34;48&#34;&gt;&lt;strong&gt;4/8&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;考研这一阶段终于快要划上终点了，但是好像没有想象中的那么开心。大家都说考研结束和毕业是接下来这几年最开心的两个结点，不过我到没有那种感觉，也只是从一段低谷期到平静期，再接着不断波澜起伏。&lt;br&gt;&#xA;希望后面能跟一个好老师，最好是温柔一点的人，希望研究生这三年能开心一点吧。今天老师的邮件回复感觉也不是很确定要要我，能早点确认就好了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;417&#34;&gt;&lt;strong&gt;4/17&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;感觉人生最重要的两个方面就是健康和幸福了。但是不管哪个一个都不是容易得到的。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

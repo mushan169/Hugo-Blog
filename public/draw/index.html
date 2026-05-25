@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8" />
-    <title>Draws</title>
+    <title>Draw</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     
@@ -32,9 +32,142 @@
 
         <div class="container mx-auto page-shell ">
             
-  <h1>Draws</h1>
-  
-  
+<section class="draw-shell">
+    <header class="draw-header">
+        <h1 class="draw-title">Draw</h1>
+        
+        <p class="draw-description">Gallery of illustrations and artworks</p>
+        
+    </header>
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="draw-filter">
+        <button class="draw-filter__btn is-active" data-filter="all">All</button>
+        
+        <button class="draw-filter__btn" data-filter="personal">personal</button>
+        
+        <button class="draw-filter__btn" data-filter="sketch">sketch</button>
+        
+    </div>
+
+    <div class="draw-grid" id="draw-grid">
+        
+        
+        
+        
+
+        <figure class="draw-item" data-category="personal">
+            <a href="/draw/test/" class="draw-item__link">
+                
+                <img src="/img/index/1.jpg" alt="测试作品 壹" class="draw-item__image" loading="lazy">
+                
+                <figcaption class="draw-item__caption">
+                    <span class="draw-item__title">测试作品 壹</span>
+                    <time class="draw-item__date">2026.05.01</time>
+                </figcaption>
+            </a>
+        </figure>
+        
+        
+        
+        
+
+        <figure class="draw-item" data-category="sketch">
+            <a href="/draw/test2/" class="draw-item__link">
+                
+                <img src="/img/index/2.jpg" alt="测试作品 贰" class="draw-item__image" loading="lazy">
+                
+                <figcaption class="draw-item__caption">
+                    <span class="draw-item__title">测试作品 贰</span>
+                    <time class="draw-item__date">2026.04.15</time>
+                </figcaption>
+            </a>
+        </figure>
+        
+        
+        
+        
+
+        <figure class="draw-item" data-category="sketch">
+            <a href="/draw/test3/" class="draw-item__link">
+                
+                <img src="/img/index/3.jpeg" alt="测试作品 叁" class="draw-item__image" loading="lazy">
+                
+                <figcaption class="draw-item__caption">
+                    <span class="draw-item__title">测试作品 叁</span>
+                    <time class="draw-item__date">2026.03.20</time>
+                </figcaption>
+            </a>
+        </figure>
+        
+    </div>
+    
+</section>
+
+<script>
+(function() {
+    var filterBtns = document.querySelectorAll('.draw-filter__btn');
+    var items = document.querySelectorAll('.draw-item');
+
+    function filterItems(filter) {
+        
+        items.forEach(function(item) {
+            item.classList.remove('draw-item--visible', 'draw-item--hidden');
+            item.classList.add('draw-item--fadeout');
+        });
+
+        
+        setTimeout(function() {
+            items.forEach(function(item) {
+                var cat = item.getAttribute('data-category');
+                var match = (filter === 'all' || cat === filter);
+                item.classList.remove('draw-item--fadeout');
+
+                if (match) {
+                    item.classList.remove('draw-item--hidden');
+                    item.classList.add('draw-item--visible');
+                } else {
+                    item.classList.add('draw-item--hidden');
+                }
+            });
+        }, 300);
+    }
+
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
+            this.classList.add('is-active');
+            filterItems(this.getAttribute('data-filter'));
+        });
+    });
+
+    
+    items.forEach(function(item) {
+        item.classList.add('draw-item--visible');
+    });
+})();
+</script>
 
         </div>
     </main>

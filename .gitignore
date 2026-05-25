@@ -1,0 +1,24 @@
+# Hugo build output
+/public/
+/.hugo_build.lock
+
+# Hugo generated assets
+/resources/_gen/
+
+# Node dependencies
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.idea/
+.vscode/

@@ -1,0 +1,100 @@
+{{ define "main" }}
+<section class="draw-shell">
+    <header class="draw-header">
+        <h1 class="draw-title">{{ .Title }}</h1>
+        {{ with .Description }}
+        <p class="draw-description">{{ . }}</p>
+        {{ end }}
+    </header>
+
+    {{ $pages := .RegularPages }}
+    {{ if $pages }}
+
+    {{/* 收集所有分类 */}}
+    {{ $categories := slice }}
+    {{ range $pages }}
+    {{ with .Params.category }}
+    {{ $cat := lower . }}
+    {{ if not (in $categories $cat) }}{{ $categories = $categories | append $cat }}{{ end }}
+    {{ end }}
+    {{ end }}
+
+    <div class="draw-filter">
+        <button class="draw-filter__btn is-active" data-filter="all">All</button>
+        {{ range $categories }}
+        <button class="draw-filter__btn" data-filter="{{ . }}">{{ . }}</button>
+        {{ end }}
+    </div>
+
+    <div class="draw-grid" id="draw-grid">
+        {{ range $pages }}
+        {{ $image := "" }}
+        {{ with .Params.image }}{{ $image = . }}{{ end }}
+        {{ with .Params.thumbnail }}{{ $image = . }}{{ end }}
+
+        <figure class="draw-item" data-category="{{ lower .Params.category | default "uncategorized" }}">
+            <a href="{{ .RelPermalink }}" class="draw-item__link">
+                {{ if $image }}
+                <img src="{{ $image | relURL }}" alt="{{ .Title }}" class="draw-item__image" loading="lazy">
+                {{ else }}
+                <div class="draw-item__placeholder">
+                    <span>{{ substr .Title 0 1 | upper }}</span>
+                </div>
+                {{ end }}
+                <figcaption class="draw-item__caption">
+                    <span class="draw-item__title">{{ .Title }}</span>
+                    <time class="draw-item__date">{{ .Date.Format "2006.01.02" }}</time>
+                </figcaption>
+            </a>
+        </figure>
+        {{ end }}
+    </div>
+    {{ else }}
+    <p class="draw-empty">No works yet.</p>
+    {{ end }}
+</section>
+
+<script>
+(function() {
+    var filterBtns = document.querySelectorAll('.draw-filter__btn');
+    var items = document.querySelectorAll('.draw-item');
+
+    function filterItems(filter) {
+        // 阶段1：全部淡出
+        items.forEach(function(item) {
+            item.classList.remove('draw-item--visible', 'draw-item--hidden');
+            item.classList.add('draw-item--fadeout');
+        });
+
+        // 阶段2：过渡结束后，筛选并淡入匹配项
+        setTimeout(function() {
+            items.forEach(function(item) {
+                var cat = item.getAttribute('data-category');
+                var match = (filter === 'all' || cat === filter);
+                item.classList.remove('draw-item--fadeout');
+
+                if (match) {
+                    item.classList.remove('draw-item--hidden');
+                    item.classList.add('draw-item--visible');
+                } else {
+                    item.classList.add('draw-item--hidden');
+                }
+            });
+        }, 300);
+    }
+
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
+            this.classList.add('is-active');
+            filterItems(this.getAttribute('data-filter'));
+        });
+    });
+
+    // 初始状态：全部可见
+    items.forEach(function(item) {
+        item.classList.add('draw-item--visible');
+    });
+})();
+</script>
+{{ end }}

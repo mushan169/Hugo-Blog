@@ -3,11 +3,15 @@ languageCode = 'zh-cn'
 title = '木山木山的小站'
 theme = 'mushan'
 
-paginate = 1
+[pagination]
+pagerSize = 10
 
 [markup.postCSS]
 use = ["postcss"]
 includePaths = ["assets/css"]
+
+[markup.goldmark.renderer]
+unsafe = true
 
 [menu]
 [[menu.main]]
